@@ -21,8 +21,8 @@
   function tambah($data) {
     $name = htmlspecialchars($data["nama"]);
     $price = htmlspecialchars($data["harga"]);
-    $status = htmlspecialchars($data["gridRadios"]);
-    $category_id = htmlspecialchars($data["kategori"]);
+    $status = ($data["gridRadios"]);
+    $category_id = intval($data["kategori"]);
     $description = htmlspecialchars($data["description"]);
     $created_by = 1;
 
@@ -140,7 +140,7 @@
           <select class="custom-select col-sm-2" id="inlineFormCustomSelect" name="kategori" required>
             <option value="">Pilih kategori</option>
             <?php foreach ($categories as $category) : ?>
-            <option value="1"><?= $category['name']; ?></option>
+            <option value="<?= $category['id']; ?>"><?= $category['name']; ?></option>
             <?php endforeach ?>
           </select>
         </div>
